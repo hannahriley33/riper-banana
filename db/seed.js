@@ -1,5 +1,6 @@
 const Studio = require('../lib/models/Studio');
 const Actor = require('../lib/models/Actor');
+const Reviewer = require('../')
 
 const chance = require('chance').Chance();
 

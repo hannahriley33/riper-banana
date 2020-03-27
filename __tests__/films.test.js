@@ -1,8 +1,8 @@
-const { getFilm, getFilms, getActor, getStudio } = require('../db/data-helpers');
+const { getFilm, getFilms, getActor, getStudio, getReviews } = require('../db/data-helpers');
 
 const request = require('supertest');
 const app = require('../lib/app');
-const chance = require('chance').Chance();
+
 
 describe('film routes', () => {
   it('creates a film', async() => {
@@ -38,15 +38,14 @@ describe('film routes', () => {
   it('gets a film by id', async() => {
     const film = await getFilm();
 
+
     return request(app)
       .get(`/api/v1/films/${film._id}`)
       .then(res => {
-        expect(res.body).toEqual({
-          ...film
-        });
+        expect(res.body).toEqual(film);
       });
   });
-
+  // studio id and name also
   it('gets all films', async() => {
     const films = await getFilms();
 

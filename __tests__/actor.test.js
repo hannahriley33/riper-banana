@@ -16,7 +16,7 @@ describe('actor routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          name: 'Hannah',
+          name: expect.any(String),
           dob: expect.any(String),
           pob: expect.any(String),
           __v: 0
